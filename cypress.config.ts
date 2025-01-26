@@ -109,7 +109,9 @@ module.exports = defineConfig({
 
       on("task", {
         async "db:seed"() {
-          // seed database with test data
+          // seed database with test data using axios lib
+          // await - code waits async request end
+          // {data} returns the API real response. It can be: status, headers, etc
           const { data } = await axios.post(`${testDataApiEndpoint}/seed`);
           return data;
         },
